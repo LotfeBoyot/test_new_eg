@@ -32,6 +32,12 @@ COPY . .
 # Install Laravel dependencies
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
+# Install Laravel Octane
+RUN composer require laravel/octane
+
+# Publish Octane configuration
+RUN php artisan vendor:publish --provider="Laravel\Octane\OctaneServiceProvider"
+
 # Set permissions (optional depending on how you're managing storage/logs)
 RUN chown -R www-data:www-data /var/www
 
