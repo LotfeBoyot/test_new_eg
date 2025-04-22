@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libcurl4-openssl-dev \
     libssl-dev \
+    libbrotli-dev \
     && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
 
 # Install swoole via PECL
