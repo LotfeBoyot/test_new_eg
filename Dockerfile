@@ -38,6 +38,9 @@ RUN composer require laravel/octane
 # Publish Octane configuration
 RUN php artisan vendor:publish --provider="Laravel\Octane\OctaneServiceProvider"
 
+# Generate application key
+RUN php artisan key:generate
+
 # Set permissions (optional depending on how you're managing storage/logs)
 RUN chown -R www-data:www-data /var/www
 
